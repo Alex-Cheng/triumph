@@ -3,6 +3,8 @@ Triumph::Application.routes.draw do
   devise_for :users
 
   get 'api/statistic', :to => 'welcome#statistic', :format => :json
+
+  get 'api/increase_online_time', :to => 'welcome#increase_online_time', :format => :json
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

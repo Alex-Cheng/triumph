@@ -1,5 +1,16 @@
 class Statistic
   @@online_strangers = {}
+  @@online_time = {} # Time unit is Second.
+
+  def Statistic.increase_online_time_for_stranger(ip)
+    time = (@@online_time[ip] or 0)
+    time += 1
+    @@online_time[ip] = time
+  end
+
+  def Statistic.online_time_for_stranger(ip)
+    ((@@online_time[ip] or 0) * 1.0 / 60).ceil
+  end
 
   def Statistic.heartbeat_for_stranger(ip)
     @@online_strangers[ip] = Time.now

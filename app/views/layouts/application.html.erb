@@ -23,5 +23,15 @@
 
 <p>现在总共有 <%= @registered_user_count %> 个注册用户在查看这个网站，有 <%= @unregistered_user_count %> 个陌生人在查看这个网站</p>
 
+<script type="text/javascript">
+  window.setInterval(function () {
+      $.ajax({
+          url: '/api/increase_online_time/',
+          type: "GET",
+          dataType: "json"
+      });
+  }, 2000);
+</script>
+
 </body>
 </html>
