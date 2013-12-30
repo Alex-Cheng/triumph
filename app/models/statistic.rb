@@ -4,13 +4,13 @@ class Statistic
 
   def Statistic.increase_online_time_for_stranger(ip)
     time = (@@online_time[ip] or 0)
-    time += 1
+    time += 5
     @@online_time[ip] = time
   end
 
   def Statistic.increase_online_time_for_registered_user(user)
     time = (user.online_time or 0)
-    time += 1
+    time += 5
     user.update_attributes({ :online_time => time })
   end
 
