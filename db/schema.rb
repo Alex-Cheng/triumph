@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230092438) do
+ActiveRecord::Schema.define(:version => 20131230114036) do
 
   create_table "users", :force => true do |t|
     t.string   "username",               :default => "", :null => false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20131230092438) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "online_time"
   end
 
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true

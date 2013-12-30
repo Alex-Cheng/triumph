@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     if current_user
-      @online_time = 0
+      @online_time = Statistic.online_time_for_registered_user(current_user)
     else
       @online_time = Statistic.online_time_for_stranger(request.remote_ip)
     end
@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 
   def increase_online_time
     if current_user
-
+      Statistic.increase_online_time_for_registered_user(current_user)
     else
       Statistic.increase_online_time_for_stranger(request.remote_ip)
     end

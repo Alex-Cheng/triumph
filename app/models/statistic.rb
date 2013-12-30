@@ -8,8 +8,18 @@ class Statistic
     @@online_time[ip] = time
   end
 
+  def Statistic.increase_online_time_for_registered_user(user)
+    time = (user.online_time or 0)
+    time += 1
+    user.update_attributes({ :online_time => time })
+  end
+
   def Statistic.online_time_for_stranger(ip)
-    ((@@online_time[ip] or 0) * 1.0 / 60).ceil
+    ((@@online_time[ip] or 0) / 60.0).ceil
+  end
+
+  def Statistic.online_time_for_registered_user(user)
+    ((user.online_time or 0) / 60.0).ceil
   end
 
   def Statistic.heartbeat_for_stranger(ip)
