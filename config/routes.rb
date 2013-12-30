@@ -2,6 +2,7 @@ Triumph::Application.routes.draw do
 
   devise_for :users
 
+  get 'api/statistic', :to => 'welcome#statistic', :format => :json
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
