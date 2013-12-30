@@ -1,0 +1,6 @@
+<h1>Welcome to Triumph</h1>
+<% if current_user %>
+    <p>current_user.name 谢谢你登录了我们网站！你已经登录了 {N} 次了，总共登录时间是 {M} 分钟了。</p>
+<% else %>
+    <p>你好，陌生人！你没有登录，或者你还没有注册，但是你已经浏览这个页面 {M} 分钟了。</p>
+<% end %>
